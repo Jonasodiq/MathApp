@@ -32,5 +32,35 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        // Knyta UI element
+        questionView = findViewById(R.id.questionView)
+        answerView = findViewById(R.id.answerView)
+        val button = findViewById<Button>(R.id.answerButton)
+        val addButton = findViewById<Button>(R.id.addButton)
+        val subtractButton = findViewById<Button>(R.id.subtractButton)
+        val multiplyButton = findViewById<Button>(R.id.multiplyButton)
+        val divideButton = findViewById<Button>(R.id.divideButton)
+        correctSound = MediaPlayer.create(this, R.raw.correct)
+        wrongSound = MediaPlayer.create(this, R.raw.wrong)
+
+        // Varje knapp tilldelas en funktion som körs när knappen klickas
+        button.setOnClickListener { handleAnswer() } // Kallas när användaren klickar på answerButton
+        addButton.setOnClickListener {
+            currentOperation = "+"
+            setNewQuestion() // Genererar en ny fråga baserad på den valda operationen.
+        }
+        subtractButton.setOnClickListener {
+            currentOperation = "-"
+            setNewQuestion()
+        }
+        multiplyButton.setOnClickListener {
+            currentOperation = "*"
+            setNewQuestion()
+        }
+        divideButton.setOnClickListener {
+            currentOperation = "/"
+            setNewQuestion()
+        }
     }
 }
