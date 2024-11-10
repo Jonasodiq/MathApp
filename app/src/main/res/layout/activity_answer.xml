@@ -26,7 +26,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:text="Tillbaka"
+        android:text="back"
         style="@style/Widget.MaterialComponents.Button"
         android:backgroundTint="@color/green"
         android:textColorLink="#4CAF50"

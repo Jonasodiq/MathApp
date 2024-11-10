@@ -39,10 +39,10 @@ class AnswerActivity : AppCompatActivity() {
 
         // Om användarens svar var rätt (answer är true), sätts texten i resultView till "Rätt svar". Annars sätts den till "Fel svar".
         if (answer) {
-            resultView.text = "Rätt svar"
+            resultView.text = "Correct"
             resultImageView.setImageResource(R.drawable.correct)
         } else {
-            resultView.text = "Fel svar"
+            resultView.text = "Wrong"
             resultImageView.setImageResource(R.drawable.incorrect)
         }
     }
