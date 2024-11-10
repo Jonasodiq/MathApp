@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">MathApp</string>
+    <string name="svar">svar</string>
+    <string name="svara">Svara</string>
+    <string name="textview">TextView</string>
+    <string name="plus">+</string>
 </resources>
