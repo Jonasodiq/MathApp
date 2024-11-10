@@ -25,13 +25,13 @@
     <EditText
         android:id="@+id/answerView"
         android:layout_width="117dp"
-        android:layout_height="42dp"
+        android:layout_height="48dp"
         android:layout_marginTop="50dp"
         android:ems="10"
+        android:gravity="center"
         android:hint="@string/svar"
         android:inputType="number"
         android:minHeight="48dp"
-        android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/questionView" />
