@@ -63,4 +63,52 @@ class MainActivity : AppCompatActivity() {
             setNewQuestion()
         }
     }
+
+    // Körs när aktiviteten återupptas
+    override fun onResume() {
+        super.onResume()
+        setNewQuestion()
+    }
+
+    private fun handleAnswer() {
+        val answeredCorrect = checkAnswer()  // kontrollera användarens svar
+        Log.d("!!!", "Du svarade $answeredCorrect")
+
+        // Spela ljud rätt eller fel
+        if (answeredCorrect) {
+            correctSound.start()
+        } else {
+            wrongSound.start()
+        }
+
+        // Skapar en Intent för att navigera till AnswerActivity och skickar med resultatet (answeredCorrect).
+        val intent = Intent(this, AnswerActivity::class.java)
+        intent.putExtra("answeredCorrect", answeredCorrect)
+        startActivity(intent)
+    }
+
+    /* Hämtar användarens svar, omvandlar det till ett tal och jämför det med correctAnswer
+    Returnerar true om svaret är rätt och false annars.*/
+    private fun checkAnswer(): Boolean {
+        val answerText = answerView.text.toString()
+        val answer = answerText.toIntOrNull()
+        return answer == correctAnswer
+    }
+
+    fun setNewQuestion() {
+        //  slumpmässiga tal
+        val firstNumber = (10..20).random()
+        val secondNumber = (1..10).random()
+
+        correctAnswer = when (currentOperation) {
+            "+" -> firstNumber + secondNumber
+            "-" -> firstNumber - secondNumber
+            "*" -> firstNumber * secondNumber
+            "/" -> if (secondNumber != 0) firstNumber / secondNumber else 0
+            else -> 0
+        }
+
+        // Visa Frågan för Användaren
+        questionView.text = "$firstNumber $currentOperation $secondNumber ="
+    }
 }
